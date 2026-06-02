@@ -3,6 +3,7 @@
 My Linux system configuration files
 
 Current Machine:
+
 - Ryzen 7 5700X3D
 - RX 9070XT
 - 32GB RAM
@@ -11,6 +12,7 @@ Current Machine:
 - 2x 1TB NVME
 - Arch Linux
 
-### Project Structure
+## Project Structure
+
 - Scripts
   - init.sh - `does the initial configuration of the machine, installing the basic packages and placing the .configs in place`
