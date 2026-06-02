@@ -1,6 +1,6 @@
 # linux-config
 
-My Linux system configuration files
+My system configuration files and scripts
 
 Current Machine:
 
