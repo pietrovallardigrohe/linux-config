@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 start_script_logging() {
   local caller_path="${1:-${BASH_SOURCE[1]:-$0}}"
