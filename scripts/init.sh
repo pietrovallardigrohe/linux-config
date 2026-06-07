@@ -20,6 +20,14 @@ start_script_logging
 ### Initialize Script
 log_info "Script initializing"
 
+# setup temporary aliasing
+alias yay='sudo -u "$SUDO_USER" yay -S --noconfirm'
+
+###/ Initialize Script
+
+# Install updates
+pacman -Syu
+
 # Setup the AUR repository yay
 log_info "Setting up yay"
 
@@ -34,9 +42,24 @@ else
     rm -r yay
 fi
 
-# Setup the shell for the system
-sudo -u "$SUDO_USER" yay -Ss --noconfirm wezterm
+###/ Initialize Script
 
-# Install general applications
+# Setup the shell for the system
+yay wezterm
+
+### Install general applications
+
+# Arch Repository
+pacman -S zsh moor
+
+# Flatpack
+flatpak install flathub app.zen_browser.zen
+flatpak install flathub org.keepassxc.KeePassXC
+
+# AUR
+yay librewolf-bin
+yay peazip-qt-bin
+###/ Install general Applications
 
 ### Cleanup Environment
+###/ Cleanup Environment
