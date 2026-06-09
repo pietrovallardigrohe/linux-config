@@ -50,7 +50,7 @@ yay wezterm
 ### Install general applications
 
 # Arch Repository
-pacman -S zsh moor
+pacman -Sy zsh moor
 
 # Flatpack
 flatpak install flathub app.zen_browser.zen
