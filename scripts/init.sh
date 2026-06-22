@@ -44,8 +44,12 @@ fi
 
 ###/ Initialize Script
 
-# Setup the shell for the system
+### Setup the shell for the system
 yay wezterm
+
+pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep
+
+###/ Setup the shell for the system
 
 ### Install general applications
 
