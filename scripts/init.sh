@@ -47,7 +47,7 @@ fi
 ### Setup the shell for the system
 yay wezterm
 
-pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep
+pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep tree-sitter-cli
 
 ###/ Setup the shell for the system
 

@@ -10,5 +10,16 @@ return {
       "folke/snacks.nvim",
     },
     lazy = false, -- neo-tree will lazily load itself
+    config = function()
+      require("neo-tree").setup({
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_hidden = false,
+          },
+        },
+      })
+    end
   }
 }
