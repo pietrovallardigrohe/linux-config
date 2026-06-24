@@ -3,15 +3,15 @@ return {
   lazy = false,
   build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter').install({ 'json' })
+    require('nvim-treesitter').install({ 'json', 'lua', 'bash' })
 
     vim.api.nvim_create_autocmd('FileType', {
 
       -- Enable Highlighting
-      pattern = { 'lua', 'javascript', 'typescript', 'json' },
-      callback = function() 
-        vim.treesitter.start() 
-      
+      pattern = { 'lua', 'javascript', 'typescript', 'json', 'bash' },
+      callback = function()
+        vim.treesitter.start()
+
         -- Enable Folds
         -- vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         -- vim.wo[0][0].foldmethod = 'expr'
