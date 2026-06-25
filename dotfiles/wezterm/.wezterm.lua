@@ -29,5 +29,10 @@ wezterm.on("gui-startup", function(cmd)
   window:gui_window():set_inner_size(width, height)
 end)
 
+require('utils.backdrops')
+   -- :set_images_dir(require('wezterm').home_dir .. '/Pictures/Wallpapers/')
+   :scan_images_dir()
+   :random()
+
 -- Finally, return the configuration to wezterm:
 return config

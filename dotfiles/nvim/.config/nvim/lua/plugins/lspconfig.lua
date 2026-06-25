@@ -15,9 +15,11 @@ return {
   {
     'mason-org/mason-lspconfig.nvim',
     opts = {
+
       ensure_installed = {
         "lua_ls",
         "powershell_es",
+        "taplo"
       }
     },
     dependencies = {
@@ -30,7 +32,11 @@ return {
     config = function()
       vim.lsp.enable('lua_ls')
       vim.lsp.enable('powershell_es')
+      vim.lsp.enable('taplo')
+
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
     end
   },
   {
@@ -41,6 +47,8 @@ return {
     opts = {
       ensure_installed = {
         "prettier",
+        "oxfmt",
+        "stylua"
       }
     }
   }

@@ -1,0 +1,19 @@
+[opener]
+glow = [{ run = 'glow -p "%s"', block = true, for = "macos" }]
+nvim = [{ run = 'nvim "%s"', block = true, for = "macos" }]
+
+[open]
+prepend_rules = [
+  { url = "*.md", use = "nvim" }
+]
+
+[[plugin.prepend_previewers]]
+url = "*.tar*"
+run = 'piper --format=url -- tar tf "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.md"
+run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
+
+[mgr]
+show_hidden = true

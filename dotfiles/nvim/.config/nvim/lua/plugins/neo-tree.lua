@@ -7,7 +7,7 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
       "antosha417/nvim-lsp-file-operations",
-      "folke/snacks.nvim",
+      { "folke/snacks.nvim", lazy=false, priority=1000 },
     },
     lazy = false, -- neo-tree will lazily load itself
     config = function()
@@ -20,7 +20,7 @@ return {
           },
         },
       })
-      
+ 
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal<CR>')
     end
   }
