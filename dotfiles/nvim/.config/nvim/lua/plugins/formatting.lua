@@ -13,7 +13,8 @@ return {
 			yaml = { "prettier" },
 			toml = { "oxfmt" },
 			lua = { "stylua" },
-		},
+		  sh = { "shfmt" },
+    },
 	},
 	keys = {
 		{
