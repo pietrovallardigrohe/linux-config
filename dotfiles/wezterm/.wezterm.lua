@@ -1,38 +1,24 @@
--- Pull in the wezterm API
-local wezterm = require 'wezterm'
-
--- This will hold the configuration.
-local config = wezterm.config_builder()
-
--- This is where you actually apply your config choices.
-
--- For example, changing the initial geometry for new windows:
-config.initial_cols = 162 -- 120
-config.initial_rows = 48 -- 28
-
--- or, changing the font size and color scheme.
-config.font_size = 13
-config.color_scheme = 'AdventureTime'
-config.font = wezterm.font('FiraCode Nerd Font Mono', { weight = 'DemiBold' })
-
--- put the terminal in the center of the screen
-wezterm.on("gui-startup", function(cmd)
-  local screen = wezterm.gui.screens().active
-  local ratio = 0.6
-  local width, height = screen.width * ratio, screen.height * ratio
-  local tab, pane, window = wezterm.mux.spawn_window {
-    position = {
-      x = (screen.width - width) / 2,
-      y = (screen.height - height) / 2,
-      origin = 'ActiveScreen' }
-  }
-  window:gui_window():set_inner_size(width, height)
-end)
+local Config = require('config')
 
 require('utils.backdrops')
    -- :set_images_dir(require('wezterm').home_dir .. '/Pictures/Wallpapers/')
    :scan_images_dir()
    :random()
 
--- Finally, return the configuration to wezterm:
-return config
+require('events.left-status').setup()
+require('events.right-status').setup({ date_format = '%a %H:%M:%S' })
+require('events.tab-title').setup({
+   hide_active_tab_unseen = true,
+   unseen_icon = 'numbered_box',
+   show_progress = true,
+})
+require('events.new-tab-button').setup()
+require('events.gui-startup').setup()
+
+return Config:init()
+   :append(require('config.appearance'))
+   :append(require('config.bindings'))
+   :append(require('config.fonts'))
+   :append(require('config.general')).options
+-- :append(require('config.domains'))
+-- :append(require('config.launch')).options

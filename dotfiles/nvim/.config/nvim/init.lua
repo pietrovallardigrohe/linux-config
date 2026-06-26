@@ -5,3 +5,4 @@ vim.opt.shiftwidth = 2
 
 require("config.lazy")
 require("config.options")
+require("config.keybinds")
