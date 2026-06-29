@@ -17,6 +17,9 @@ help() {
 source ./log.sh
 start_script_logging
 
+source ./utils/platform.sh
+local platform = "$(get_platform)"
+
 ### Initialize Script
 log_info "Script initializing"
 
@@ -25,29 +28,30 @@ alias yay='sudo -u "$SUDO_USER" yay -S --noconfirm'
 
 ###/ Initialize Script
 
-# Install updates
-pacman -Syu
+if [ "$platform" = "Linux" ]; then
+  # Install updates
+  pacman -Syu
 
-# Setup the AUR repository yay
-log_info "Setting up yay"
+  # Setup the AUR repository yay
+  log_info "Setting up yay"
 
-if command -v yay >/dev/null 2>&1; then
-    log_info "yay is already installed"
-else
-    sudo pacman -Sy --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay || exit 1
-    makepkg -si
-    cd ..
-    rm -r yay
+  if command -v yay >/dev/null 2>&1; then
+      log_info "yay is already installed"
+  else
+      sudo pacman -Sy --needed git base-devel
+      git clone https://aur.archlinux.org/yay.git
+      cd yay || exit 1
+      makepkg -si
+      cd ..
+      rm -r yay
+  fi
 fi
-
 ###/ Initialize Script
 
 ### Setup the shell for the system
 yay wezterm
 
-pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep tree-sitter-cli yazi glow
+pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep tree-sitter-cli yazi glow lazygit
 
 ###/ Setup the shell for the system
 

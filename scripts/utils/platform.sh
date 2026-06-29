@@ -1,14 +1,11 @@
 #!/bin/bash
 
+source ./log.sh
+
 get_platform() {
-  platform=$(uname -s)
-
-  if [ $platform = "Darwin" ];
-  then
-    platform="MacOs"
-  fi
-
-  return platform
+  case "$(uname -s)" in
+    "Darwin") echo "MacOS" ;;
+    "Linux") echo "Linux" ;;
+    *) log_error "Invalid operating system: " + $(uname -s) ;;
+  esac
 }
-
-echo $(get_platform)

@@ -2,12 +2,11 @@
 
 start_script_logging() {
   local caller_path="${1:-${BASH_SOURCE[1]:-$0}}"
-  local caller_base
-  caller_base="$(basename "$caller_path")"
+  local caller_base="$(basename "$caller_path")"
 
-  mkdir -p logs
+  mkdir -p ../logs
 
-  local log_file="logs/${caller_base%.*}.log"
+  local log_file="../logs/${caller_base%.*}.log"
 
   exec > >(tee "$log_file") 2>&1
   echo "Starting script $caller_base"
