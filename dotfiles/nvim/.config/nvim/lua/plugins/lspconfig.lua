@@ -8,7 +8,7 @@ return {
 					package_installed = "✓",
 					package_pending = "➜",
 					package_uninstalled = "✗",
-				},
+			},
 			},
 		},
 	},
@@ -30,6 +30,59 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		keys = {
+			{
+				"gD",
+				vim.lsp.buf.declaration,
+			},
+			{
+				"gd",
+				vim.lsp.buf.definition,
+			},
+			{
+				"gi",
+				vim.lsp.buf.implementation,
+			},
+			{
+				"K",
+				vim.lsp.buf.hover,
+			},
+			{
+				"<C-k>",
+				vim.lsp.buf.signature_help,
+			},
+			{
+				"<leader>wa",
+				vim.lsp.buf.add_workspace_folder,
+			},
+			{
+				"<leader>wr",
+				vim.lsp.buf.remove_workspace_folder,
+			},
+			{
+				"<leader>wl",
+				function()
+					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				end,
+			},
+			{
+				"<leader>D",
+				vim.lsp.buf.type_definition,
+			},
+			{
+				"<leader>rn",
+				vim.lsp.buf.rename,
+			},
+			{
+				"<leader>ca",
+				vim.lsp.buf.code_action,
+				mode = { "n", "v" },
+			},
+			{
+				"gr",
+				vim.lsp.buf.references,
+			},
+		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -41,10 +94,7 @@ return {
 			vim.lsp.enable("powershell_es")
 			vim.lsp.enable("taplo")
 			vim.lsp.enable("bashls")
-
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.lsp.enable("wezterm-types")
 		end,
 	},
 	{
