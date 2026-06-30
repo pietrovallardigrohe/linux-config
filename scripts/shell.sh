@@ -7,6 +7,9 @@ if [ -z "$SUDO_USER" ]; then
 fi
 
 # Load logging script
-source ./log.sh
+source ./utils/log.sh
 
-log
+log_info "Starting up shell configuration script"
+
+source ./utils/platform.sh
+local platform="$(get_platform)"
