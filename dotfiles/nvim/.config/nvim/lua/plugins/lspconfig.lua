@@ -15,13 +15,13 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-
 			ensure_installed = {
 				"lua_ls",
+        "ts-ls",
 				"powershell_es",
 				"taplo",
 				"bashls",
-			},
+      },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -91,11 +91,12 @@ return {
 			})
 
 			vim.lsp.enable("lua_ls")
+      vim.lsp.enable("ts_ls")
 			vim.lsp.enable("powershell_es")
 			vim.lsp.enable("taplo")
 			vim.lsp.enable("bashls")
 			vim.lsp.enable("wezterm-types")
-		end,
+    end,
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
