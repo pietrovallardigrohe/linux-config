@@ -8,5 +8,20 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Replace in file
 vim.keymap.set("n", "<leader>r", ":%s///g<Left><Left><Left>", {
-  desc = "Replace in file",
+	desc = "Replace in file",
 })
+
+-- Little one from Primeagen to mass replace string in a file
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+
+-- Disable space key
+vim.keymap.set("n", "<leader>", "<nop>")
+
+-- Remap as uppercase U
+vim.keymap.set("n", "U", "<C-r>")
+
+-- Save and quit faster
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { silent = false })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { silent = false })
+vim.keymap.set("n", "<leader>wa", "<cmd>wa<CR>", { silent = false })
+
