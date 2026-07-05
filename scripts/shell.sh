@@ -13,3 +13,5 @@ log_info "Starting up shell configuration script"
 
 source ./utils/platform.sh
 local platform="$(get_platform)"
+
+sudo pacman -S wl-clipboard
