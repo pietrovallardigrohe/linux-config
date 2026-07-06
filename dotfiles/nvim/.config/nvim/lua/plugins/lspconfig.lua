@@ -18,7 +18,7 @@ return {
 			automatic_enable = true,
 			ensure_installed = {
 				"lua_ls",
-				"ts-ls",
+				"ts_ls",
 				"powershell_es",
 				"taplo",
 				"bashls",

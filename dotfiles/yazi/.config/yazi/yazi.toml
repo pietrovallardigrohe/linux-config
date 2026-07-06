@@ -1,10 +1,12 @@
 [opener]
 glow = [{ run = 'glow -p "%s"', block = true, for = "macos" }]
 nvim = [{ run = 'nvim "%s"', block = true, for = "macos" }]
+stream = [{ run = 'stream "%s"', block = true, for = "linux" }]
 
 [open]
 prepend_rules = [
-  { url = "*.md", use = "nvim" }
+  { url = "*.md", use = "nvim" },
+  { url = "*.mkv", use = "stream" }
 ]
 
 [[plugin.prepend_previewers]]
