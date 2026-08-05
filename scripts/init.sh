@@ -14,7 +14,7 @@ help() {
 }
 
 # Load logging script
-source ./log.sh
+source ./utils/log.sh
 start_script_logging
 
 source ./utils/platform.sh
@@ -31,7 +31,6 @@ alias yay='sudo -u "$SUDO_USER" yay -S --noconfirm'
 if [[ "$platform" = "Linux" ]]; then
   # Install updates
   pacman -Syu
-elif [[ "$platform" = "MacOs" ]]; then
 fi
 ###/ Initialize Script
 
@@ -45,7 +44,7 @@ pacman -Sy zsh neovim eza bat fd fzf zoxide starship ripgrep tree-sitter-cli yaz
 ### Install general applications
 
 # Arch Repository
-pacman -Sy zsh moor man man-db
+pacman -Sy zsh moor man an-db
 
 # Flatpack
 flatpak install flathub app.zen_browser.zen
