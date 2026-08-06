@@ -53,6 +53,7 @@ lf() { # zsh follow lf navigation
 
 alias vim='nvim'
 alias view='nvim -R'
+alias sudo='sudo -E'  # preserve env (EDITOR, etc.) so sudo nvim uses your config
 
 # =========================================================
 # Git

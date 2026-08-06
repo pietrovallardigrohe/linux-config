@@ -1,4 +1,5 @@
 [opener]
+edit = [{ run = 'nvim "%s"', block = true, for = "unix" }]
 glow = [{ run = 'glow -p "%s"', block = true, for = "macos" }]
 nvim = [{ run = 'nvim "%s"', block = true, for = "macos" }]
 stream = [{ run = 'stream "%s"', block = true, for = "linux" }]
